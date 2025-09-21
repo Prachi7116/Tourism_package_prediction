@@ -1,4 +1,4 @@
-name: Tourism Package Prediction CI
+name: Tourism Package Prediction CI/CD
 
 on:
   push:
@@ -22,59 +22,4 @@ jobs:
 
       - name: Run Data Registration
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python tourism_project/model_building/data_register.py
-
-  model-training:
-    needs: data-prep
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r tourism_project/requirements.txt
-
-      - name: Start MLflow Tracking Server
-        run: |
-          nohup mlflow server \
-            --backend-store-uri sqlite:///mlflow.db \
-            --default-artifact-root file:$(pwd)/mlruns \
-            --host 127.0.0.1 --port 5000 > mlflow.log 2>&1 &
-          sleep 10
-
-      - name: Run Training
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          MLFLOW_TRACKING_URI: http://127.0.0.1:5000
-        run: python tourism_project/model_building/train.py
-
-      - name: Debug MLflow logs if training fails
-        if: failure()
-        run: cat mlflow.log
-        
-  deploy-hosting:
-    needs: [model-training, data-prep, register-dataset]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: List Files in Root Directory
-        run: |
-          pwd
-          ls -R
-
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Push files to Frontend Hugging Face Space
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          pwd
-          ls -R
-          python tourism_project/hosting/hosting.py
+          HF_TOKEN: ${{ secrets.HF_TOKEN }
