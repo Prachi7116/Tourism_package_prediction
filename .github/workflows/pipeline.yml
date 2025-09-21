@@ -19,7 +19,7 @@ jobs:
       - name: Upload Dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python ./tourism_project/model_building/data_register.py
+        run: python ./model_building/data_register.py
 
   data-prep:
     needs: register-dataset
@@ -36,7 +36,7 @@ jobs:
       - name: Run Data Preparation
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python ./tourism_project/model_building/prep.py
+        run: python ./model_building/data_prep.py
 
   model-training:
     needs: data-prep
@@ -53,7 +53,7 @@ jobs:
       - name: Model Building
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python ./tourism_project/model_building/train.py
+        run: python ./model_building/data_train.py
 
   deploy-hosting:
     needs: [model-training, data-prep, register-dataset]
@@ -70,9 +70,7 @@ jobs:
       - name: Push files to Frontend Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python ./tourism_project/hosting/hosting.py
-        - name: List Files in Root Directory
-  run: ls -R
-
+        run: python ./model_building/data_hosting.py
+      
 
     
