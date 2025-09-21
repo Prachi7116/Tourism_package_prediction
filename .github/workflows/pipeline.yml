@@ -1,29 +1,34 @@
-name: wellness tourism Pipeline
+name: Wellness Tourism Pipeline
+
 on:
   push:
     branches:
       - main
+
 jobs:
   register-dataset:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Clone repository into tourism_project
+        run: git clone https://github.com/your-org/your-repo.git tourism_project
       
       - name: List Files in Root Directory
         run: ls -R
         
       - name: Install Dependencies
-        run:  pip install -r /content/Tourism_project/Tourism_project/tourism_project/deployment/requirements.txt  # Adjust the path
+        run: pip install -r tourism_project/deployment/requirements.txt
         
       - name: Upload Dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/data_register.py
+
   data-prep:
     needs: register-dataset
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Clone repository into tourism_project
+        run: git clone https://github.com/your-org/your-repo.git tourism_project
       
       - name: List Files in Root Directory
         run: ls -R
@@ -35,11 +40,13 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/prep.py
+
   model-training:
     needs: data-prep
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Clone repository into tourism_project
+        run: git clone https://github.com/your-org/your-repo.git tourism_project
       
       - name: List Files in Root Directory
         run: ls -R
@@ -51,11 +58,13 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/train.py
+
   deploy-hosting:
     needs: [model-training, data-prep, register-dataset]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Clone repository into tourism_project
+        run: git clone https://github.com/your-org/your-repo.git tourism_project
       
       - name: List Files in Root Directory
         run: ls -R
