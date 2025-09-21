@@ -57,9 +57,15 @@ jobs:
       - name: Install Dependencies
         run: pip install -r tourism_project/requirements.txt
 
+      - name: Start MLflow UI
+        run: |
+          nohup mlflow ui --host 0.0.0.0 --port 5000 &  # Run MLflow UI in background
+          sleep 5  # Give it a moment to start
+
       - name: Model Building
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          MLFLOW_TRACKING_URI: "file:./mlruns"  # Use file-based MLflow tracking
         run: python tourism_project/model_building/train.py
 
   deploy-hosting:
