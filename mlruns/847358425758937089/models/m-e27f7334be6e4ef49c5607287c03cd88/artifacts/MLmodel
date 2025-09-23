@@ -1,0 +1,46 @@
+artifact_path: file:///content/Tourism_package_prediction/mlruns/847358425758937089/models/m-e27f7334be6e4ef49c5607287c03cd88/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+is_signature_from_type_hint: false
+mlflow_version: 3.0.1
+model_id: m-e27f7334be6e4ef49c5607287c03cd88
+model_size_bytes: 168541
+model_uuid: m-e27f7334be6e4ef49c5607287c03cd88
+prompts: null
+run_id: 1a814dd70b514aceabed2b24265c7389
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "age", "required": true}, {"type": "string",
+    "name": "typeofcontact", "required": true}, {"type": "long", "name": "citytier",
+    "required": true}, {"type": "double", "name": "durationofpitch", "required": true},
+    {"type": "string", "name": "occupation", "required": true}, {"type": "string",
+    "name": "gender", "required": true}, {"type": "long", "name": "numberofpersonvisiting",
+    "required": true}, {"type": "double", "name": "numberoffollowups", "required":
+    true}, {"type": "string", "name": "productpitched", "required": true}, {"type":
+    "double", "name": "preferredpropertystar", "required": true}, {"type": "string",
+    "name": "maritalstatus", "required": true}, {"type": "double", "name": "numberoftrips",
+    "required": true}, {"type": "long", "name": "passport", "required": true}, {"type":
+    "long", "name": "pitchsatisfactionscore", "required": true}, {"type": "long",
+    "name": "owncar", "required": true}, {"type": "double", "name": "numberofchildrenvisiting",
+    "required": true}, {"type": "string", "name": "designation", "required": true},
+    {"type": "double", "name": "monthlyincome", "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-09-23 07:49:16.667864'

@@ -24,7 +24,7 @@ Please enter the sensor and configuration data below to get a prediction.
  Do the customer have his/her own Car ? = st.selectbox("OwnCar",["Yes","No"])
  Pitch Satisfaction Score = st.number_input("Pitch Satisfaction Score", min_value=0, max_value=10, value=5)
  Number Of Followups = st.number_input("Number Of Followups", min_value=0, max_value=10, value=2)
- Type Of Contact = st.selectbox("Type Of Contact",["Customer Invited","Self Inquiry"])
+ Type of Contact = st.selectbox("Type of Contact",["Customer Invited","Self Inquiry"])
  City Tier = st.selectbox("City Tier",["Tier 1","Tier 2","Tier 3"] 
  Occupation = st.selectbox("Occupation",["Self-Employed","Salaried","Business"],"Freelancer")
  Gender = st.selectbox("Gender",["Male","Female"])
@@ -47,7 +47,7 @@ input_data = pd.DataFrame([{
     'OwnCar': Do the customer have his/her own Car ?
     'PitchSatisfactionScore': Pitch Satisfaction Score
     'NumberOfFollowups': Number Of Followups
-    'TypeOfContact': Type Of Contact
+    'TypeofContact': Type Of Contact
     'CityTier': City Tier
     'Occupation': Occupation
     'Gender': Gender

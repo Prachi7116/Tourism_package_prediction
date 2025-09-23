@@ -1,0 +1,6 @@
+artifact_location: file:///content/Tourism_package_prediction/mlruns/847358425758937089
+creation_time: 1758613727802
+experiment_id: '847358425758937089'
+last_update_time: 1758613727802
+lifecycle_stage: active
+name: mlops-training-experiment

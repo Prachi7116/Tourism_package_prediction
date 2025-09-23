@@ -1,0 +1,14 @@
+artifact_uri: file:///content/Tourism_package_prediction/mlruns/847358425758937089/a0c0bf25eb0240fc98f066ec3adcba0b/artifacts
+end_time: 1758613771890
+entry_point_name: ''
+experiment_id: '847358425758937089'
+lifecycle_stage: active
+run_id: a0c0bf25eb0240fc98f066ec3adcba0b
+run_name: ambitious-shrew-317
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758613765115
+status: 3
+tags: []
+user_id: root

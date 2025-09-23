@@ -1,0 +1,14 @@
+artifact_uri: file:///content/Tourism_package_prediction/mlruns/847358425758937089/1a814dd70b514aceabed2b24265c7389/artifacts
+end_time: 1758613764554
+entry_point_name: ''
+experiment_id: '847358425758937089'
+lifecycle_stage: active
+run_id: 1a814dd70b514aceabed2b24265c7389
+run_name: rebellious-crab-258
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758613744015
+status: 3
+tags: []
+user_id: root
