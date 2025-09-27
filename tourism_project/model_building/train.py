@@ -53,7 +53,7 @@ numeric_features = [
     'NumberOfFollowups',
     'MonthlyIncome'
 ]
-categorical_features = ['TypeOfContact', 'Occupation', 'Gender', 'MaritalStatus', 'Designation', 'ProductPitched']
+categorical_features = ['TypeofContact', 'Occupation', 'Gender', 'MaritalStatus', 'Designation', 'ProductPitched']
 
 
 # Set the clas weight to handle class imbalance
