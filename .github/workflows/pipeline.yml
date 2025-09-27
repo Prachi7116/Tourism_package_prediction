@@ -1,4 +1,4 @@
-name: wellness tourism Pipeline
+name: tourism project Pipeline
 
 on:
   push:
