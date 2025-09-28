@@ -138,8 +138,8 @@ with mlflow.start_run():
 
     # Log the model artifact
     model_path = "xgb_model.pkl"  # Path to your model file
-    mlflow.log_artifact(model_path, artifact_path="model")
-    print(f"Model saved as artifact at: {model_path}")
+    #mlflow.log_artifact(model_path, artifact_path="model")
+    #print(f"Model saved as artifact at: {model_path}")
 
     # Upload to Hugging Face
     repo_id = "PrachiRB/Tourism-prediction-model" # Corrected repo_id
